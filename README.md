@@ -93,11 +93,10 @@ example. 1. artist Title
          2. Title artist
          Output = DOesnt match
 
-*  This is why in the whole read.md i have been stating to Rename the files in case thesearch fails.
-** LRCLIB also Only picks the lyrics of the videos based on the audio's length compared to its own length, and only allows at max a 2sec difference in the length.
+* This is why in the whole read.md i have been stating to Rename the files in case thesearch fails.
+* LRCLIB also Only picks the lyrics of the videos based on the audio's length compared to its own length, and only allows at max a 2sec difference in the length.
 For example. Some songs have multiple variants, (for eg. a 3min variant and a 4minute variant). Hence if you explicitly want your files to be tagged correctly, it is adviced to first search the name of the tirle on lrclib itself.
-
-If someone wants to tag their file's lyrics data themselves(exclusively telling for opus users only), they can go to any AUto Tagger app, and edit their LYRICS tab directly.
+* if someone wants to tag their file's lyrics data themselves(exclusively telling for opus users only), they can go to any AUto Tagger app, and edit their LYRICS tab directly.
 ---
 
 ### PLease review the script, try it out yourself on your own linux environment, and tell me any improvements or new features i can add. I am also going to wrao this up in a really lightweight application wrapper, an exe standalone for windows, full support + dependencies for android in a single file etc.
