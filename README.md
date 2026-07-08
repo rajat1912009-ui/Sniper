@@ -1,7 +1,7 @@
 cat << 'EOF' > README.md
 # 🎯 Sniper Daemon
 
-A high-performance, system-agnostic extraction engine capable of pulling audio tracks, full playlists, and media content from YouTube and Instagram. Sniper automates metadata tagging, embeds synchronized or flat-text lyrics using the LRCLIB architecture, and formats outputs directly into localized `.opus` containers(youtube's native extension for audio files) and '.mp4' for "video+audio".
+A high-performance,Mainly music, system-agnostic extraction engine capable of pulling audio tracks, full playlists, and media content from YouTube and Instagram. Sniper automates metadata tagging, embeds synchronized or flat-text lyrics using the LRCLIB architecture, and formats outputs directly into localized `.opus` containers(youtube's native extension for audio files) and '.mp4' for "video+audio".
 The daemon can handle single streams/videos up to 4gb in size, before breaking it down into multiple parts to further support it.
 
 I found using yt-dlp alone really annnoying(this script is built upon yt-dlp by the way), since extracting pure audio from youtube videos was a nightmare, let alone synced Lyrics tagging.
@@ -64,21 +64,40 @@ Pass any video, playlist, or Instagram URL directly as an execution argument fro
 sniper "https://www.youtube.com/watch?v=EXAMPLE"
 ```
 
-⚡ Method B: The Bare-Metal Keyboard Hotkey (Linux Desktop)
+### ⚡ Method B: The Bare-Metal Keyboard Hotkey (Linux Desktop)
 
 For an ultra-fluid desktop workflow, you can trigger Sniper via a global keyboard shortcut to automatically pull whatever link is copied into your system clipboard memory.
 
-Ensure xclip is installed on your system
+1️⃣Ensure xclip is installed on your system
 
   ```bash
 sudo apt install xclip -y 
   ```
 
-  Open System Settings -> Keyboard -> Shortcuts -> Custom Shortcuts.
+2️⃣Open System Settings -> Keyboard -> Shortcuts -> Custom Shortcuts.
 
   Create a new entry mapping your preferred key combo (e.g., Super + Shift + D) to execute this native terminal string:
   
-
+```bash
   gnome-terminal -- bash -c "sniper \$(xclip -selection clipboard -o); exec bash"
+```
 
-Now, simply copy any URL (Ctrl + C) and hit your macro binding to fire up the execution matrix instantly!
+3️⃣Now, simply copy any URL (Ctrl + C) and hit your macro binding to fire up the execution matrix instantly!
+
+---
+## ⚠️ Note
+This is probably the most important Part of the entire documentation.
+*  LRCLIB doesnt allow syntax jumbling, meaning your searches at the site must be perfect to get the lyrics.
+*  This is usually not an issue if you are grabbing lyrics of official music videos on youtube, but on any video with its title even slightly jumbled
+example. 1. artist Title
+         2. Title artist
+         Output = DOesnt match
+
+*  This is why in the whole read.md i have been stating to Rename the files in case thesearch fails.
+** LRCLIB also Only picks the lyrics of the videos based on the audio's length compared to its own length, and only allows at max a 2sec difference in the length.
+For example. Some songs have multiple variants, (for eg. a 3min variant and a 4minute variant). Hence if you explicitly want your files to be tagged correctly, it is adviced to first search the name of the tirle on lrclib itself.
+
+If someone wants to tag their file's lyrics data themselves(exclusively telling for opus users only), they can go to any AUto Tagger app, and edit their LYRICS tab directly.
+---
+
+### PLease review the script, try it out yourself on your own linux environment, and tell me any improvements or new features i can add. I am also going to wrao this up in a really lightweight application wrapper, an exe standalone for windows, full support + dependencies for android in a single file etc.
